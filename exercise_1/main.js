@@ -1,15 +1,18 @@
 decimal = 12;
 
 function binary(decimal){
-  var getBinary = "";
+  var getBinary = [];
   while(decimal >= 0.5){
       if(decimal % 2 === 0){
-        getBinary += decimal % 2;
+        getBinary.push(decimal % 2);
         decimal = decimal/2;
       }else{
-        getBinary += (decimal % 2)
+        getBinary.push(decimal % 2);
         decimal = decimal / 2 - 0.5;
       }
   }
-  return getBinary
+    var reverseBinary = getBinary.reverse();
+    var stringBinary = reverseBinary.join("");
+
+  return stringBinary;
 }
