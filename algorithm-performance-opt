@@ -1,0 +1,36 @@
+function getUnique1(values)
+  const uniqueValues = []; //a) O(1), b) O(1), c) O(1)
+                      //arrays depend on size
+  a) = how many times statement runs
+  b) = how many simple opp if we run once
+  for(
+    let valueIndex = 0; //a) O(1), b) O(1), c) O(1) Initializer so only runs once
+    valueIndex < values.length; // a) O(n), b) O(1), c) O(n)
+    valueIndex++ // a) O(n), b) O(1), c) O(n)
+  ){
+    const value = values[valueIndex]; // a) O(n), b) O(1), O(n)
+    let unique = true a) O(n), b) O(1), c) O(n)
+    for(
+      let compareIndex = 0;
+      comparteIndex < valueIndex; // a) O(n^2), b) O(1), c) O(n^2)
+      comareIndex++ // a) O(n^2) b) O(1) c) O(n^2)
+    ){
+      const compareValue = value[comareIndex]// a) O(n^2) b) O(1) c) O(n^2)
+      if (compareValue === value) { a) O(n^2) b) O(1) c) O(n^2)
+        unique = false; // since in a condtional can run all the time or not at all --> worse case: a) O(n^2), b) O(1), c) O(n^2)
+      }
+    }
+    if(unique) { //a) O(n) b) O(1) c) O(n^2)
+      uniqueValues.push(value) //a) O(n) b) O(1) c) O(n) //arrays in low lvl lang memory allocations need to copy every value since cant touch the value
+                                                                // O(n) for low lvl since it makes a new array
+                                                                // JS it adds a little to it but sometimes has to resize like lol lvl memory
+                                                                //O(log(n)) --> avg case, most of the time is O(1), once of a while run out of space and create
+                                                                // a new memory allocation and then copy its value to plus one, worst case is n^2
+                                                                //b/c js engine is optimized and takes into account of the space allocation
+                                                                // the speed can be considered O(1)
+    }
+  }
+  return uniqueValues; // a) O(1) b) O(1), O(1)
+}
+
+// function's O-notation: O(n^2)
