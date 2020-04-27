@@ -1,0 +1,18 @@
+main {
+  display: flex;
+  position: relative;
+}
+
+.button-left {
+  position: relative;
+
+}
+
+.button-right {
+  position:absolute;
+  right: 50%;
+}
+
+.hidden {
+  display:none;
+}
