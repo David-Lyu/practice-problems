@@ -1,0 +1,31 @@
+Edabit.com/challenge/Gpy2qSFnfhaGJnWMMj
+Question:
+
+Create a function that returns true if the first array can be nested inside
+the second.
+
+arr1 can be nested inside arr2 if:
+
+arr1's min is greater than arr2's min.
+arr1's max is less than arr2's max.
+
+PsuedoCode:
+
+Create a function that takes in two arrays as parameters.
+Create 4 storage spaces that stores:
+  1) minimum of the first array, named minimum array 1
+  2) maximum of the first array, named maximum array 1
+  3) minimum of the first array, named minimum array 2
+  4) maximum of the first array, named maximum array 2
+Find the minimum and maximum of the first array, by comparing each value and
+  storing them in the minimum array 1 if the value is smaller than the current
+  value. If the values of the array are bigger than its previous one then that
+  array gets stored in the maximum array 1.
+Find the minimum and maximum of the second array
+  same concept of finding the maximum and minimum of the array 1 except
+  store them in the appropriate places.
+Check to see if second arrays minimum is smaller than the first array and
+  Check to see if the second arrays maximum is larger than the first array
+  maximum and if the second array minimum is smaller than the first then give the
+  function back a value of true.
+If one or both are untrue give the function back a value of false.
