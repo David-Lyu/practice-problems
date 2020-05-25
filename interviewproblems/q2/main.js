@@ -38,6 +38,6 @@ const isAnagram = (string1: string, string2: string): boolean => {
       letters[letter2] = -1
     };
   };
-  const keys = Object.keys(letters);
+  const keys = Object.keys(letters); //n i would assume it is n because you have to go through the entire entries once
   return !keys.length;
 };
