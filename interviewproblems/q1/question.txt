@@ -1,0 +1,1 @@
+given array of num look for 2 num that add up to a target
