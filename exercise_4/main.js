@@ -24,4 +24,5 @@ function minuteToHourConverter(minute) {
     }
   }
   const time = hour + ":" + min;
+  return time;
 }
