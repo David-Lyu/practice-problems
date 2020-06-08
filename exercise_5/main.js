@@ -14,10 +14,10 @@
     const startDay = startDate.getDay()
     let holidayDay = (x - 1) * 7 - 1
     if (startDay === 6) holidayDay = x * 7 -1;
-    if(startDay < targetDay) {
+    if(startDay <= targetDay) {
       holidayDay += (targetDay - startDay)
     } else {
-      holidayDay = holidayDay - (startDay - targetDay)
+      holidayDay = holidayDay - (startDay - targetDay) + 7
     }
     if(holidayDay > daysInMonth) {
       return -1

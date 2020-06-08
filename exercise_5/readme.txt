@@ -22,3 +22,4 @@ For x = 5, weekDay = "Thursday", month = "November", and yearNumber = 2016, the 
 holiday(x, weekDay, month, yearNumber) = -1.
 
 There are only 4 Thursdays in November 2016.
+x = how many "Thursdays are in the month" and what is the date
