@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function commonCharacterCount(s1, s2) {
+        const hashMap = {};
+        debugger;
+        for (let i = 0; i < s1.length; i++) {
+          const letter = s1[i]
+          if (!hashMap[letter]) {
+            hashMap[letter] = 1;
+            continue
+          }
+          if (hashMap[letter]) {
+            hashMap[letter]++
+          }
+        }
+        const hashMap2 = {};
+        for (let i = 0; i < s2.length; i++) {
+          const letter = s2[i]
+          if (!hashMap2[letter]) {
+            hashMap2[letter] = 1
+            continue
+          }
+          if (hashMap2[letter]) {
+            hashMap2[letter]++
+          }
+        }
+        const keys = Object.keys(hashMap)
+        let counter = 0;
+        for (let i = 0; i < keys.length; i++) {
+          const key = keys[i]
+          if (hashMap2[key]) {
+            counter += hashMap2[key] > hashMap[key] ? hashMap[key] : hashMap2[key]
+          }
+        }
+        return counter
+      }
+
+      commonCharacterCount("aabcc","adcaa")
+  </script>
+</body>
+</html>
