@@ -1,7 +1,7 @@
-function reverseString(arr,length) {
+function reverseString(arr,length = arr.length - 1, endIndex = 0) {
     let reversedString = "";
-// need an index end
-    for(let i = length; i >= 0; i--) {
+    if(arr.length === 0) return reversedString
+    for(let i = length; i >= endIndex; i--) {
         for(let j = arr[i].length - 1; j >= 0; j--) {
             if(i === 0) {
                 reversedString += arr[i][j];
@@ -19,8 +19,8 @@ function reverseInParentheses(inputString) {
     let temp = [];
     let tempIndex = 0;
     let nonParenth = "";
-    let reversedString = ""
-    //give order to when to add nonParenth
+    let reversedString = "";
+    let parenthChecker = 0
     debugger;
     for(let i = 0; i < arr.length; i++) {
         if(arr[i] === "(") {
@@ -29,7 +29,11 @@ function reverseInParentheses(inputString) {
             } else {
                 tempIndex++
             }
+            parenthChecker++
             continue;
+        }
+        if(arr[i] === ")") {
+            parenthChecker--
         }
         if(openParenth && arr[i] !== ")") {
             if(!temp[tempIndex]) {
@@ -38,17 +42,26 @@ function reverseInParentheses(inputString) {
             temp[tempIndex] += arr[i]
             continue
         }
-        if(arr[i] === ")" && openParenth) {
+        if(arr[i] === ")" && parenthChecker === 0) {
             reversedString = reverseString(temp,tempIndex)
-            tempIndex++
+            nonParenth += reversedString
+            reversedString = ""
+            temp = [];
+            tempIndex = 0;
             openParenth = false
+            continue;
+        }
+        if(arr[i] === ")" && /[^)]/g.test(arr[i+1]) && arr[i+1]) {
+            temp[tempIndex] = reverseString([temp[tempIndex]]);
+            temp = [temp.join("")];
+            tempIndex = 0;
             continue;
         }
         if(arr[i] !== ")") {
             nonParenth += arr[i]
         }
     }
-    return nonParenth + reversedString
+    return nonParenth
 }
 
-console.log(reverseInParentheses("abc(123(zyx))"))
+console.log(reverseInParentheses("foo(avc(def)123)abc"))
