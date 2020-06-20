@@ -1,6 +1,5 @@
+
 function areSimilar(a, b) {
-  // const aString = a.join();
-  // const bString = b.join();
   let different = false;
   let temp = null;
   let swapped = false;
@@ -32,3 +31,15 @@ function areSimilar(a, b) {
 }
 
 console.log(areSimilar([1,1,4],[1,2,3]))
+// another problem will be on readme
+function arrayChange(inputArray) {
+    let incArr = 0;
+    for(let i = 0; i < inputArray.length -1; i++) {
+        if(inputArray[i] >= inputArray[i+1]) {
+            incArr += inputArray[i] + 1 - inputArray[i+1]
+            inputArray[i+1] = inputArray[i] + 1
+        }
+    }
+    return incArr;
+}
+
