@@ -1,18 +1,12 @@
-https://app.codesignal.com/arcade/intro/level-5/5xPitc3yT3dqS7XkP
-Last night you partied a little too hard. Now there's a black and white photo
-of you that's about to go viral! You can't let this ruin your reputation,
-so you want to apply the box blur algorithm to the photo to hide its content.
+https://app.codesignal.com/arcade/intro/level-5/XC9Q2DhRRKQrfLhb5
+You are given an array of integers representing coordinates of obstacles situated on a straight line.
 
-The pixels in the input image are represented as integers. The algorithm
-distorts the input image in the following way: Every pixel x in the output
-image has a value equal to the average value of the pixel values from the 3 × 3
-square that has its center at x, including x itself. All the pixels on the
-border of x are then removed.
+Assume that you are jumping from the point with coordinate 0 to the right. You are allowed only to make jumps of the same length represented by some integer.
 
-Return the blurred image as an integer, with the fractions rounded down.
+Find the minimal length of the jump enough to avoid all the obstacles.
 
-Basically find all the 3x3 squares possible
-in those 3x3 squares get the avg and return it in the array.
-for every horizontal 3x3 made should return one array
-for every verticle 3x3 should make another array
-so nested array.
+Example
+
+For inputArray = [5, 3, 6, 7, 9], the output should be
+avoidObstacles(inputArray) = 4.
+>>>>>>> 18625552c3b299bf7475bdb91117dbb8a6ad6e0b

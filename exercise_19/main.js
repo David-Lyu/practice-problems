@@ -1,28 +1,14 @@
-function boxBlur(image) {
-  if (!image.length) return 0;
+function avoidObstacles(inputArray) {
+    const max = Math.max(...inputArray) + 1
+    let jump = 2;
+    for(let i = 2; i < max; i++) {
 
-  let length = image[0].length;
-  for (let i = 1; i < image.length; i++) {
-    if (image[i].length < length) {
-      length = image[i].length;
+        const truthy = inputArray.every(input => input%i !== 0)
+        if(truthy) return jump
+        jump++
     }
-  }
-  const blurArr = [];
-  //outside start
-  for(let outer = 0; outer < image.length - 2; outer++){
-    for (let i = 0; i < outer + 3; i++) {
-      let newArr = []
-      for (let j = 0; j < length - 2; j++) {
-        let avg = 0;
-        for (let k = 0; k < j + 3; k++) {
-          avg += image[i][k]
-        }
-        newArr[outer] += avg
-      }
-      blurArr.push(newArr)
-    }
-  }
-  return blurArr
+    return jump
 }
 
-console.log(boxBlur([[1, 1, 1],[1, 7, 1],[1, 1, 1]]))
+console.log(avoidObstacles([2,3]))
+>>>>>>> 18625552c3b299bf7475bdb91117dbb8a6ad6e0b
