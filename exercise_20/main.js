@@ -8,21 +8,35 @@ function boxBlur(image) {
     }
   }
   const blurArr = [];
-  //outside start
-  for (let outer = 0; outer < image.length - 2; outer++) {
-    for (let i = 0; i < outer + 3; i++) {
-      let newArr = []
-      for (let j = 0; j < length - 2; j++) {
-        let avg = 0;
-        for (let k = 0; k < j + 3; k++) {
-          avg += image[i][k]
+  
+  
+  let avg = 0
+  //goes to next vertical square
+  for(let vertIndex = 0; vertIndex < image.length -2; vertIndex++) {
+    //goes to next horizontal square
+    let index = vertIndex
+    for(let horiIndex = 0; horiIndex < length -2; horiIndex++) {
+      //grabs verticle on index
+      while(index < vertIndex + 3) {
+        //grabs horizontal on index
+        let inner = horiIndex
+        while(inner < horiIndex + 3) {
+          avg += image[index][inner];
+          inner++
         }
-        newArr[outer] += avg
+        index++
       }
-      blurArr.push(newArr)
+      if(!blurArr[vertIndex]){
+        blurArr[vertIndex] = []
+      }
+      blurArr[vertIndex].push(Math.floor(avg/9))
+      avg = 0;
+      index = vertIndex;
     }
   }
+
+
   return blurArr
 }
 
-console.log(boxBlur([[1, 1, 1], [1, 7, 1], [1, 1, 1]]))
+console.log(boxBlur([[1, 1, 1, 1,2], [1, 7, 1, 1, 2], [1, 1, 1, 1,2],[1,1,1]]))
